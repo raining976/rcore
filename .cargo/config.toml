@@ -1,0 +1,8 @@
+[build]
+target = "riscv64gc-unknown-none-elf"
+
+# 使用riscv64...时 使用如下链接脚本规定的方式链接
+[target.riscv64gc-unknown-none-elf]
+rustflags = [
+   "-Clink-arg=-Tsrc/linker.ld", "-Cforce-frame-pointers=yes" # 打开fp选项 防止fp被编译器优化
+]
